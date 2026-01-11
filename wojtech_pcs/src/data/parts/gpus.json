@@ -1,0 +1,69 @@
+[
+  {
+    "id": "rtx-5070",
+    "type": "gpu",
+    "name": "NVIDIA RTX 5070",
+    "price": 2500,
+    "benchmarkId": "rtx-5070",
+    "metadata": {
+      "brand": "NVIDIA",
+      "vram": 12
+    }
+  },
+  {
+    "id": "rtx-5080",
+    "type": "gpu",
+    "name": "NVIDIA RTX 5080",
+    "price": 3200,
+    "benchmarkId": "rtx-5080",
+    "metadata": {
+      "brand": "NVIDIA",
+      "vram": 16
+    }
+  },
+  {
+    "id": "rtx-5090",
+    "type": "gpu",
+    "name": "NVIDIA RTX 5090",
+    "price": 4200,
+    "benchmarkId": "rtx-5090",
+    "metadata": {
+      "brand": "NVIDIA",
+      "vram": 24,
+      "hidden": true
+    }
+  },
+  {
+    "id": "rx-7800xt",
+    "type": "gpu",
+    "name": "AMD Radeon RX 7800 XT",
+    "price": 2300,
+    "benchmarkId": "rx-7800xt",
+    "metadata": {
+      "brand": "AMD",
+      "vram": 16
+    }
+  },
+  {
+    "id": "rx-7900xt",
+    "type": "gpu",
+    "name": "AMD Radeon RX 7900 XT",
+    "price": 3000,
+    "benchmarkId": "rx-7900xt",
+    "metadata": {
+      "brand": "AMD",
+      "vram": 20
+    }
+  },
+  {
+    "id": "rx-7900xtx",
+    "type": "gpu",
+    "name": "AMD Radeon RX 7900 XTX",
+    "price": 3800,
+    "benchmarkId": "rx-7900xtx",
+    "metadata": {
+      "brand": "AMD",
+      "vram": 24
+    }
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1tb-nvme",
+    "type": "storage",
+    "name": "1TB NVMe SSD",
+    "price": 350,
+    "metadata": {
+      "type": "nvme",
+      "capacity": 1000
+    }
+  },
+  {
+    "id": "2tb-nvme",
+    "type": "storage",
+    "name": "2TB NVMe SSD",
+    "price": 600,
+    "metadata": {
+      "type": "nvme",
+      "capacity": 2000
+    }
+  },
+  {
+    "id": "3tb-nvme",
+    "type": "storage",
+    "name": "3TB NVMe SSD",
+    "price": 850,
+    "metadata": {
+      "type": "nvme",
+      "capacity": 3000
+    }
+  },
+  {
+    "id": "4tb-nvme",
+    "type": "storage",
+    "name": "4TB NVMe SSD",
+    "price": 1100,
+    "metadata": {
+      "type": "nvme",
+      "capacity": 4000
+    }
+  }
+]

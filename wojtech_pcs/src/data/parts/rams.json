@@ -1,0 +1,32 @@
+[
+  {
+    "id": "16gb-ddr5",
+    "type": "ram",
+    "name": "16GB DDR5 6000MHz",
+    "price": 300,
+    "metadata": {
+      "generation": "DDR5",
+      "size": 16
+    }
+  },
+  {
+    "id": "32gb-ddr5",
+    "type": "ram",
+    "name": "32GB DDR5 6000MHz",
+    "price": 550,
+    "metadata": {
+      "generation": "DDR5",
+      "size": 32
+    }
+  },
+  {
+    "id": "64gb-ddr5",
+    "type": "ram",
+    "name": "64GB DDR5 6000MHz",
+    "price": 1000,
+    "metadata": {
+      "generation": "DDR5",
+      "size": 64
+    }
+  }
+]

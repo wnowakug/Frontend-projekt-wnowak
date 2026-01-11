@@ -1,0 +1,74 @@
+[
+  {
+    "id": "ryzen-5-7600",
+    "type": "cpu",
+    "name": "AMD Ryzen 5 7600",
+    "price": 950,
+    "benchmarkId": "ryzen-5-7600",
+    "metadata": {
+      "brand": "AMD",
+      "socket": "AM5",
+      "cores": 6
+    }
+  },
+  {
+    "id": "ryzen-7-7800x3d",
+    "type": "cpu",
+    "name": "AMD Ryzen 7 7800X3D",
+    "price": 1850,
+    "benchmarkId": "ryzen-7-7800x3d",
+    "metadata": {
+      "brand": "AMD",
+      "socket": "AM5",
+      "cores": 8
+    }
+  },
+  {
+    "id": "ryzen-9-7950x",
+    "type": "cpu",
+    "name": "AMD Ryzen 9 7950X",
+    "price": 2600,
+    "benchmarkId": "ryzen-9-7950x",
+    "metadata": {
+      "brand": "AMD",
+      "socket": "AM5",
+      "cores": 16
+    }
+  },
+  {
+    "id": "i5-14600k",
+    "type": "cpu",
+    "name": "Intel Core i5-14600K",
+    "price": 1450,
+    "benchmarkId": "i5-14600k",
+    "metadata": {
+      "brand": "Intel",
+      "socket": "LGA1700",
+      "cores": 14
+    }
+  },
+  {
+    "id": "i7-14700k",
+    "type": "cpu",
+    "name": "Intel Core i7-14700K",
+    "price": 2100,
+    "benchmarkId": "i7-14700k",
+    "metadata": {
+      "brand": "Intel",
+      "socket": "LGA1700",
+      "cores": 20
+    }
+  },
+  {
+    "id": "i9-14900k",
+    "type": "cpu",
+    "name": "Intel Core i9-14900K",
+    "price": 2800,
+    "benchmarkId": "i9-14900k",
+    "metadata": {
+      "brand": "Intel",
+      "socket": "LGA1700",
+      "cores": 24
+    }
+  }
+]
