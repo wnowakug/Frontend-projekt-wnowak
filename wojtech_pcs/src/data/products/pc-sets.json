@@ -5,7 +5,7 @@
         "pl": "Gaming Starter",
         "en": "Gaming Starter"
     },
-    "basePrice": 4200,
+    "basePrice": 4300,
     "imgPath": "/images/starterpc.png",
     "defaultConfig": {
         "cpu": "ryzen-5-7600",
@@ -22,7 +22,7 @@
         "pl": "Gaming Plus",
         "en": "Gaming Plus"
     },
-    "basePrice": 5200,
+    "basePrice": 5100,
     "imgPath": "/images/pluspc.png",
     "defaultConfig": {
         "cpu": "i5-14600k",
@@ -39,7 +39,7 @@
         "pl": "Gaming Ultra",
         "en": "Gaming Ultra"
     },
-    "basePrice": 6900,
+    "basePrice": 6650,
     "imgPath": "/images/ultrapc.png",
     "defaultConfig": {
         "cpu": "ryzen-7-7800x3d",
@@ -56,7 +56,7 @@
         "pl": "Gaming Ultimate",
         "en": "Gaming Ultimate"
     },
-    "basePrice": 11500,
+    "basePrice": 9100,
     "imgPath": "/images/ultimatepc.png",
     "defaultConfig": {
         "cpu": "ryzen-9-7950x",
@@ -73,7 +73,7 @@
         "pl": "Creator Basic",
         "en": "Creator Basic"
     },
-    "basePrice": 5600,
+    "basePrice": 5950,
     "imgPath": "/images/creatorpc.png",
     "defaultConfig": {
         "cpu": "i7-14700k",
@@ -90,7 +90,7 @@
         "pl": "Creator Pro",
         "en": "Creator Pro"
     },
-    "basePrice": 8200,
+    "basePrice": 7400,
     "imgPath": "/images/creatorpluspc.png",
     "defaultConfig": {
         "cpu": "ryzen-9-7950x",
@@ -107,13 +107,13 @@
         "pl": "Workstation X",
         "en": "Workstation X"
     },
-    "basePrice": 9400,
+    "basePrice": 8050,
     "imgPath": "/images/workstationpc.png",
     "defaultConfig": {
         "cpu": "i9-14900k",
         "gpu": "rtx-5080",
         "ram": "64gb-ddr5",
-        "storage": "2tb-nvme"
+        "storage": "3tb-nvme"
     },
     "tags": ["workstation", "engineering", "cpu-intel", "gpu-nvidia"]
     },
@@ -124,7 +124,7 @@
         "pl": "Office & Home",
         "en": "Office & Home"
     },
-    "basePrice": 3400,
+    "basePrice": 3975,
     "imgPath": "/images/officepc.png",
     "defaultConfig": {
         "cpu": "ryzen-5-7600",

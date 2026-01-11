@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useConfigurator } from "@/context/ConfiguratorContext";
 
 type Parts = {
   cpus: any[];
@@ -16,15 +19,24 @@ export default function ProductCard({ product, parts }: Props) {
   const { cpus, gpus, rams, drives } = parts;
   const cfg = product.defaultConfig;
 
+  const { setProduct } = useConfigurator();
+
   const findName = (list: any[], id: string) =>
     list.find(el => el.id === id)?.name ?? id;
 
   return (
     <div className="card">
       <h3>{product.name.pl}</h3>
+
       <div className="prevImg">
-      <Image src={product.imgPath} alt={product.name.pl} width={128} height={192} />
+        <Image
+          src={product.imgPath}
+          alt={product.name.pl}
+          width={128}
+          height={192}
+        />
       </div>
+
       <p className="price">Cena bazowa: {product.basePrice} zł</p>
 
       <ul>
@@ -34,7 +46,9 @@ export default function ProductCard({ product, parts }: Props) {
         <li>Dysk: {findName(drives, cfg.storage)}</li>
       </ul>
 
-      <button>Konfiguruj</button>
+      <button onClick={() => setProduct(product)}>
+        Wybierz
+      </button>
     </div>
   );
 }

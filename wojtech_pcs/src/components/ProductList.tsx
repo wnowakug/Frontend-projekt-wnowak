@@ -5,7 +5,7 @@ import FilterBar from "./FilterBar";
 import ProductCard from "./ProductCard";
 import { filterProducts } from "@/lib/filters";
 
-export default function ProductListClient({
+export default function ProductList({
   products,
   parts
 }: {

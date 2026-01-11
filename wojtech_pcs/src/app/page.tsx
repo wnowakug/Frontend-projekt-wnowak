@@ -1,5 +1,6 @@
-import ProductListClient from "@/components/ProductList";
-import ProductCard from "@/components/ProductCard";
+import ProductList from "@/components/ProductList";
+import ConfiguratorBar from "@/components/configurator/ConfiguratorBar";
+import { ConfiguratorProvider } from "@/context/ConfiguratorContext";
 
 async function getProducts() {
   const res = await fetch("http://localhost:3000/api/products", {
@@ -20,13 +21,17 @@ export default async function HomePage() {
   const parts = await getParts();
 
   return (
-    <>
+    <ConfiguratorProvider>
+      {/* konfigurator*/}
+      <ConfiguratorBar parts={parts} />
+
       <h2>Gotowe zestawy PC</h2>
 
-      <ProductListClient
+      {/* produkty */}
+      <ProductList
         products={products}
         parts={parts}
       />
-    </>
+    </ConfiguratorProvider>
   );
 }
