@@ -11,7 +11,7 @@
         "allowed": ["16gb-ddr5", "32gb-ddr5"]
       },
       "storage": {
-        "allowed": ["1tb-nvme", "2tb-nvme"]
+        "allowed": ["512gb-nvme", "1tb-nvme", "2tb-nvme"]
       }
     },
 
@@ -56,7 +56,7 @@
         "allowed": ["16gb-ddr5", "32gb-ddr5", "64gb-ddr5"]
       },
       "storage": {
-        "allowed": ["2tb-nvme", "3tb-nvme"]
+        "allowed": ["512gb-nvme", "1tb-nvme", "2tb-nvme", "3tb-nvme"]
       }
     },
 
@@ -120,7 +120,7 @@
         "allowed": ["16gb-ddr5", "32gb-ddr5"]
       },
       "storage": {
-        "allowed": ["1tb-nvme", "2tb-nvme"]
+        "allowed": ["512gb-nvme", "1tb-nvme", "2tb-nvme"]
       }
     }
   }

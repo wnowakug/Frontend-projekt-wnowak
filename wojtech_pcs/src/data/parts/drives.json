@@ -1,5 +1,16 @@
 [
   {
+    "id": "512gb-nvme",
+    "type": "storage",
+    "name": "512GB NVMe SSD",
+    "price": 225,
+    "metadata": {
+      "type": "nvme",
+      "capacity": 512
+    }
+  },
+
+  {
     "id": "1tb-nvme",
     "type": "storage",
     "name": "1TB NVMe SSD",

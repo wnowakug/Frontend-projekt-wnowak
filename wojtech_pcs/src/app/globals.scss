@@ -33,16 +33,8 @@ body {
   color: white;
 }
 
-.home {
-  text-align: center;
-  margin-top: 4rem;
-}
-
-.actions {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+.price{
+  font-weight:bold;
 }
 
 button {
@@ -51,9 +43,26 @@ button {
   cursor: pointer;
 }
 
+.filterBar{
+  display:flex;
+  flex-direction:row;
+  gap:10px;
+}
+
+.filterOption{
+  display:flex;
+  flex-direction:row;
+  gap:5px;
+}
+
+.card{
+  display: flex;
+  flex-direction:column;
+  text-align:center;
+}
+
 .pc-grid{
   display:inline-grid;
   grid-template-columns: auto auto auto auto;
   gap:20px;
-
 }

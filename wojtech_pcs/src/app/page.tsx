@@ -1,3 +1,4 @@
+import ProductListClient from "@/components/ProductList";
 import ProductCard from "@/components/ProductCard";
 
 async function getProducts() {
@@ -22,15 +23,10 @@ export default async function HomePage() {
     <>
       <h2>Gotowe zestawy PC</h2>
 
-      <div className="pc-grid">
-        {products.map((product: any) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            parts={parts}
-          />
-        ))}
-      </div>
+      <ProductListClient
+        products={products}
+        parts={parts}
+      />
     </>
   );
 }

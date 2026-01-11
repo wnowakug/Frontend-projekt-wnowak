@@ -33,22 +33,32 @@ body {
   color: white;
 }
 
-.home {
-  text-align: center;
-  margin-top: 4rem;
-}
-
-.actions {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+.price {
+  font-weight: bold;
 }
 
 button {
   padding: 0.7rem 1.2rem;
   font-size: 1rem;
   cursor: pointer;
+}
+
+.filterBar {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.filterOption {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 .pc-grid {

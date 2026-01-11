@@ -10,10 +10,10 @@
     "defaultConfig": {
         "cpu": "ryzen-5-7600",
         "gpu": "rtx-5070",
-        "ram": ["16gb-ddr5"],
-        "storage": ["1tb-nvme"]
+        "ram": "16gb-ddr5",
+        "storage": "1tb-nvme"
     },
-    "tags": ["gaming", "1080p", "starter"]
+    "tags": ["gaming", "1080p", "starter", "cpu-amd", "gpu-nvidia"]
     },
 
     {
@@ -27,10 +27,10 @@
     "defaultConfig": {
         "cpu": "i5-14600k",
         "gpu": "rx-7800xt",
-        "ram": ["32gb-ddr5"],
-        "storage": ["1tb-nvme"]
+        "ram": "32gb-ddr5",
+        "storage": "2tb-nvme"
     },
-    "tags": ["gaming", "1440p"]
+    "tags": ["gaming", "1440p", "cpu-intel", "gpu-amd"]
     },
 
     {
@@ -44,10 +44,10 @@
     "defaultConfig": {
         "cpu": "ryzen-7-7800x3d",
         "gpu": "rtx-5080",
-        "ram": ["32gb-ddr5"],
-        "storage": ["2tb-nvme"]
+        "ram": "32gb-ddr5",
+        "storage": "3tb-nvme"
     },
-    "tags": ["gaming", "4k"]
+    "tags": ["gaming", "4k", "cpu-amd", "gpu-nvidia"]
     },
 
     {
@@ -61,10 +61,10 @@
     "defaultConfig": {
         "cpu": "ryzen-9-7950x",
         "gpu": "rtx-5090",
-        "ram": ["64gb-ddr5"],
-        "storage": ["4tb-nvme"]
+        "ram": "64gb-ddr5",
+        "storage": "4tb-nvme"
     },
-    "tags": ["gaming", "4k"]
+    "tags": ["gaming", "4k", "cpu-amd", "gpu-nvidia"]
     },
 
     {
@@ -78,10 +78,10 @@
     "defaultConfig": {
         "cpu": "i7-14700k",
         "gpu": "rtx-5070",
-        "ram": ["32gb-ddr5"],
-        "storage": ["2tb-nvme"]
+        "ram": "32gb-ddr5",
+        "storage": "2tb-nvme"
     },
-    "tags": ["creator", "workstation"]
+    "tags": ["creator", "workstation", "cpu-intel", "gpu-nvidia"]
     },
 
     {
@@ -95,10 +95,10 @@
     "defaultConfig": {
         "cpu": "ryzen-9-7950x",
         "gpu": "rx-7900xt",
-        "ram": ["64gb-ddr5"],
-        "storage": ["2tb-nvme"]
+        "ram": "64gb-ddr5",
+        "storage": "2tb-nvme"
     },
-    "tags": ["creator", "render", "pro"]
+    "tags": ["creator", "render", "pro", "cpu-amd", "gpu-amd"]
     },
 
     {
@@ -112,10 +112,10 @@
     "defaultConfig": {
         "cpu": "i9-14900k",
         "gpu": "rtx-5080",
-        "ram": ["64gb-ddr5"],
-        "storage": ["2tb-nvme"]
+        "ram": "64gb-ddr5",
+        "storage": "2tb-nvme"
     },
-    "tags": ["workstation", "engineering"]
+    "tags": ["workstation", "engineering", "cpu-intel", "gpu-nvidia"]
     },
 
     {
@@ -129,9 +129,9 @@
     "defaultConfig": {
         "cpu": "ryzen-5-7600",
         "gpu": "rx-7800xt",
-        "ram": ["16gb-ddr5"],
-        "storage": ["1tb-nvme"]
+        "ram": "16gb-ddr5",
+        "storage": "512gb-nvme"
     },
-    "tags": ["office", "home"]
+    "tags": ["office", "home", "cpu-amd", "gpu-amd"]
     }
 ]

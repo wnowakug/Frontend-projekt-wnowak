@@ -30,7 +30,7 @@ export default function RootLayout({
         </main>
 
         <footer className="footer">
-          <p>© 2026 PC Builder Store</p>
+          <p>Wojciech Nowak, 300818, Informatyka Praktyczna gr.3</p>
         </footer>
       </body>
     </html>
