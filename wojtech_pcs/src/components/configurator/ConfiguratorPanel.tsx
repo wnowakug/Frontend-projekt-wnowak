@@ -5,30 +5,31 @@ import { useMemo } from "react";
 import { useConfigurator } from "@/context/ConfiguratorContext";
 import PartSelect from "./PartSelect";
 import PriceSummary from "./PriceSummary";
+import { getAllowedParts } from "@/lib/configuratorRules";
 
 const LABOUR_COST = 200;
 
 export default function ConfiguratorPanel({ parts, onClose }: { parts: any; onClose: () => void; }) {
-  const { product, config, updateConfig, setProduct } =
-    useConfigurator();
-
-  // zabezpieczenie
+  const { product, config, updateConfig } = useConfigurator();
+  
   if (!product || !config) {
-    return <div />
+    return null;
   }
+
+  const allowedParts = getAllowedParts(product.id, parts);
 
   const findPrice = (list: any[], id: string) =>
     list.find(el => el.id === id)?.price ?? 0;
 
   const totalPrice = useMemo(() => {
     return (
-      findPrice(parts.cpus, config.cpu) +
-      findPrice(parts.gpus, config.gpu) +
-      findPrice(parts.rams, config.ram) +
-      findPrice(parts.drives, config.storage) +
+      findPrice(allowedParts.cpus, config.cpu) +
+      findPrice(allowedParts.gpus, config.gpu) +
+      findPrice(allowedParts.rams, config.ram) +
+      findPrice(allowedParts.drives, config.drives) +
       LABOUR_COST
     );
-  }, [config, parts]);
+  }, [config, allowedParts]);
 
   return (
     <div
@@ -49,33 +50,33 @@ export default function ConfiguratorPanel({ parts, onClose }: { parts: any; onCl
 
         <PartSelect
           label="Procesor"
-          options={parts.cpus}
+          options={allowedParts.cpus}
           value={config.cpu}
           onChange={value => updateConfig("cpu", value)}
         />
 
         <PartSelect
           label="Karta graficzna"
-          options={parts.gpus}
+          options={allowedParts.gpus}
           value={config.gpu}
           onChange={value => updateConfig("gpu", value)}
         />
 
         <PartSelect
           label="Pamięć RAM"
-          options={parts.rams}
+          options={allowedParts.rams}
           value={config.ram}
           onChange={value => updateConfig("ram", value)}
         />
 
         <PartSelect
           label="Dysk"
-          options={parts.drives}
-          value={config.storage}
-          onChange={value => updateConfig("storage", value)}
+          options={allowedParts.drives}
+          value={config.drives}
+          onChange={value => updateConfig("drives", value)}
         />
 
-        <button onClick={onClose}>
+        <button id="closeConfigButton" onClick={onClose}>
           Zamknij konfigurator
         </button>
       </div>

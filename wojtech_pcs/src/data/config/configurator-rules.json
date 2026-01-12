@@ -1,127 +1,121 @@
 {
-  "products": {
-    "pc-gaming-starter": {
-      "cpu": {
-        "allowed": ["ryzen-5-7600", "ryzen-7-7800x3d", "i5-14600k"]
-      },
-      "gpu": {
-        "allowed": ["rtx-5070", "rtx-5080", "rx-7800xt"]
-      },
-      "ram": {
-        "allowed": ["16gb-ddr5", "32gb-ddr5"]
-      },
-      "storage": {
-        "allowed": ["512gb-nvme", "1tb-nvme", "2tb-nvme"]
-      }
+  "pc-gaming-starter": {
+    "cpu": {
+      "allowed": ["ryzen-5-7600", "ryzen-7-7800x3d", "i5-14600k"]
     },
-
-    "pc-gaming-plus": {
-      "cpu": {
-        "allowed": ["i5-14600k", "i7-14700k", "ryzen-5-7600", "ryzen-7-7800x3d"]
-      },
-      "gpu": {
-        "allowed": ["rx-7800xt", "rtx-5070", "rtx-5080"]
-      },
-      "ram": {
-        "allowed": ["16gb-ddr5", "32gb-ddr5"]
-      },
-      "storage": {
-        "allowed": ["1tb-nvme", "2tb-nvme", "3tb-nvme"]
-      }
+    "gpu": {
+      "allowed": ["rtx-5070", "rtx-5080", "rx-7800xt"]
     },
-
-    "pc-gaming-ultra": {
-      "cpu": {
-        "allowed": ["ryzen-7-7800x3d", "ryzen-9-7950x"]
-      },
-      "gpu": {
-        "allowed": ["rtx-5080", "rtx-5090"]
-      },
-      "ram": {
-        "allowed": ["32gb-ddr5", "64gb-ddr5"]
-      },
-      "storage": {
-        "allowed": ["2tb-nvme", "3tb-nvme", "4tb-nvme"]
-      }
+    "ram": {
+      "allowed": ["16gb-ddr5", "32gb-ddr5"]
     },
+    "storage": {
+      "allowed": ["512gb-nvme", "1tb-nvme", "2tb-nvme"]
+    }
+  },
 
-    "pc-creator-basic": {
-      "cpu": {
-        "allowed": ["i7-14700k", "ryzen-7-7800x3d"]
-      },
-      "gpu": {
-        "allowed": ["rtx-5070", "rx-7900xt"]
-      },
-      "ram": {
-        "allowed": ["16gb-ddr5", "32gb-ddr5", "64gb-ddr5"]
-      },
-      "storage": {
-        "allowed": ["512gb-nvme", "1tb-nvme", "2tb-nvme", "3tb-nvme"]
-      }
+  "pc-gaming-plus": {
+    "cpu": {
+      "allowed": ["i5-14600k", "i7-14700k", "ryzen-5-7600", "ryzen-7-7800x3d"]
     },
-
-    "pc-creator-pro": {
-      "cpu": {
-        "allowed": ["ryzen-9-7950x", "i9-14900k"]
-      },
-      "gpu": {
-        "allowed": ["rx-7900xt", "rtx-5080"]
-      },
-      "ram": {
-        "allowed": ["32gb-ddr5", "64gb-ddr5"]
-      },
-      "storage": {
-        "allowed": ["2tb-nvme", "4tb-nvme"]
-      }
+    "gpu": {
+      "allowed": ["rx-7800xt", "rtx-5070", "rtx-5080"]
     },
-
-    "pc-workstation-x": {
-      "cpu": {
-        "allowed": ["i9-14900k", "ryzen-9-7950x"]
-      },
-      "gpu": {
-        "allowed": ["rtx-5080", "rtx-5090"]
-      },
-      "ram": {
-
-        "allowed": ["32gb-ddr5", "64gb-ddr5"]
-      },
-      "storage": {
-
-        "allowed": ["2tb-nvme", "3tb-nvme", "4tb-nvme"]
-      }
+    "ram": {
+      "allowed": ["16gb-ddr5", "32gb-ddr5"]
     },
+    "storage": {
+      "allowed": ["1tb-nvme", "2tb-nvme", "3tb-nvme"]
+    }
+  },
 
-    "pc-gaming-ultimate": {
-      "cpu": {
-
-        "allowed": ["ryzen-9-7950x", "i9-14900k"]
-      },
-      "gpu": {
-
-        "allowed": ["rtx-5090"]
-      },
-      "ram": {
-        "allowed": ["32gb-ddr5", "64gb-ddr5"]
-      },
-      "storage": {
-        "allowed": ["3tb-nvme", "4tb-nvme"]
-      }
+  "pc-gaming-ultra": {
+    "cpu": {
+      "allowed": ["ryzen-7-7800x3d", "ryzen-9-7950x"]
     },
+    "gpu": {
+      "allowed": ["rx-7900xt","rx-7900xtx","rtx-5080"]
+    },
+    "ram": {
+      "allowed": ["32gb-ddr5", "64gb-ddr5"]
+    },
+    "storage": {
+      "allowed": ["2tb-nvme", "3tb-nvme", "4tb-nvme"]
+    }
+  },
 
-    "pc-office-home": {
-      "cpu": {
-        "allowed": ["ryzen-5-7600", "ryzen-7-7800x3d", "i5-14600k"]
-      },
-      "gpu": {
-        "allowed": ["rx-7800xt", "rx-7900xt"]
-      },
-      "ram": {
-        "allowed": ["16gb-ddr5", "32gb-ddr5"]
-      },
-      "storage": {
-        "allowed": ["512gb-nvme", "1tb-nvme", "2tb-nvme"]
-      }
+  "pc-creator-basic": {
+    "cpu": {
+      "allowed": ["i7-14700k", "ryzen-7-7800x3d"]
+    },
+    "gpu": {
+      "allowed": ["rtx-5070", "rx-7900xt"]
+    },
+    "ram": {
+      "allowed": ["16gb-ddr5", "32gb-ddr5", "64gb-ddr5"]
+    },
+    "storage": {
+      "allowed": ["512gb-nvme", "1tb-nvme", "2tb-nvme", "3tb-nvme"]
+    }
+  },
+
+  "pc-creator-pro": {
+    "cpu": {
+      "allowed": ["ryzen-9-7950x", "i9-14900k"]
+    },
+    "gpu": {
+      "allowed": ["rx-7900xt", "rtx-5080"]
+    },
+    "ram": {
+      "allowed": ["32gb-ddr5", "64gb-ddr5"]
+    },
+    "storage": {
+      "allowed": ["2tb-nvme", "4tb-nvme"]
+    }
+  },
+
+  "pc-workstation-x": {
+    "cpu": {
+      "allowed": ["i9-14900k", "ryzen-9-7950x"]
+    },
+    "gpu": {
+      "allowed": ["rtx-5080", "rtx-5090"]
+    },
+    "ram": {
+      "allowed": ["32gb-ddr5", "64gb-ddr5"]
+    },
+    "storage": {
+      "allowed": ["2tb-nvme", "3tb-nvme", "4tb-nvme"]
+    }
+  },
+
+  "pc-gaming-ultimate": {
+    "cpu": {
+      "allowed": ["ryzen-9-7950x", "i9-14900k"]
+    },
+    "gpu": {
+      "allowed": ["rx-7900xtx", "rtx-5090"]
+    },
+    "ram": {
+      "allowed": ["32gb-ddr5", "64gb-ddr5"]
+    },
+    "storage": {
+      "allowed": ["3tb-nvme", "4tb-nvme"]
+    }
+  },
+
+  "pc-office-home": {
+    "cpu": {
+      "allowed": ["ryzen-5-7600", "ryzen-7-7800x3d", "i5-14600k"]
+    },
+    "gpu": {
+      "allowed": ["rx-7800xt", "rx-7900xt"]
+    },
+    "ram": {
+      "allowed": ["16gb-ddr5", "32gb-ddr5"]
+    },
+    "storage": {
+      "allowed": ["512gb-nvme", "1tb-nvme", "2tb-nvme"]
     }
   }
 }

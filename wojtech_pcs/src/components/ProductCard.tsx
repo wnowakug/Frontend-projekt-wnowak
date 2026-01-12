@@ -43,10 +43,10 @@ export default function ProductCard({ product, parts }: Props) {
         <li>CPU: {findName(cpus, cfg.cpu)}</li>
         <li>GPU: {findName(gpus, cfg.gpu)}</li>
         <li>RAM: {findName(rams, cfg.ram)}</li>
-        <li>Dysk: {findName(drives, cfg.storage)}</li>
+        <li>Dysk: {findName(drives, cfg.drives)}</li>
       </ul>
 
-      <button onClick={() => setProduct(product)}>
+      <button className="choosePcButton" onClick={() => setProduct(product)}>
         Wybierz
       </button>
     </div>

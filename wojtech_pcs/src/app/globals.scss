@@ -95,6 +95,8 @@ button {
   opacity: 1;
 }
 
+/* KONFIGURATOR - PRZYCISKI */
+
 .partSelect {
   margin-bottom: 1.5rem;
 }
@@ -144,12 +146,46 @@ button {
   color: #555;
 }
 
+#closeConfigButton {
+  min-width: 140px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #cfcfcf;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: center;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#closeConfigButton:hover {
+  border-color: red;
+}
+
+
 /* GRID PRODUKTÓW */
 
 .card{
   display: flex;
   flex-direction:column;
   text-align:center;
+}
+
+.choosePcButton{
+  min-width: 140px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid orange;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: center;
+}
+
+.choosePcButton{
+  border-color:red;
 }
 
 .pc-grid{

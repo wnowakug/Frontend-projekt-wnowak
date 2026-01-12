@@ -6,7 +6,7 @@ type Config = {
   cpu: string;
   gpu: string;
   ram: string;
-  storage: string;
+  drives: string;
 };
 
 type ContextType = {
@@ -33,7 +33,7 @@ export function ConfiguratorProvider({
         cpu: product.defaultConfig.cpu,
         gpu: product.defaultConfig.gpu,
         ram: product.defaultConfig.ram,
-        storage: product.defaultConfig.storage
+        drives: product.defaultConfig.drives
       });
     } else {
       setConfig(null);
