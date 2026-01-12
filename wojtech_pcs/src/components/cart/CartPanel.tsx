@@ -2,56 +2,81 @@
 
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
+import CheckoutWizard from "@/components/wizard/CheckoutWizard";
+import { useState } from "react";
 
 export default function CartPanel() {
-  const { items, removeItem, updateQuantity, totalPrice } = useCart();
+  const { items, removeItem, totalPrice } = useCart();
+  const [isWizardOpen, setIsWizardOpen] = useState(false);
+
+  if (items.length === 0) {
+    return (
+      <div className="cartPanel empty">
+        <h3>Koszyk</h3>
+        <p>Koszyk jest pusty</p>
+      </div>
+    );
+  }
 
   return (
-    <aside className="cartWrapper">
+    <>
       <div className="cartPanel">
         <h3>Koszyk</h3>
 
-        {items.length === 0 && (
-          <p className="emptyCart">Koszyk jest pusty</p>
-        )}
+        <ul className="cartList">
+          {items.map(item => (
+            <li key={item.id} className="cartItem">
+              <Image
+                src={item.imgPath}
+                alt={item.name}
+                width={64}
+                height={96}
+              />
 
-        {items.map(item => (
-          <div key={item.id} className="cartItem">
-            <strong>{item.name}</strong>
+              <div className="cartDetails">
+                <strong>{item.name}</strong>
 
-            <div className="cartConfig">
-              <div>CPU: {item.config.cpu}</div>
-              <div>GPU: {item.config.gpu}</div>
-              <div>RAM: {item.config.ram}</div>
-              <div>Dysk: {item.config.drives}</div>
-            </div>
+                <div className="cartConfig">
+                  <div>CPU: {item.config.cpu}</div>
+                  <div>GPU: {item.config.gpu}</div>
+                  <div>RAM: {item.config.ram}</div>
+                  <div>Dysk: {item.config.drives}</div>
+                </div>
 
-            <div className="cartControls">
-              <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
-                −
-              </button>
-              <span>{item.quantity}</span>
-              <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
-                +
-              </button>
-              <button onClick={() => removeItem(item.id)}>Usuń</button>
-            </div>
+                <button
+                  className="remove"
+                  onClick={() => removeItem(item.id)}
+                >
+                  Usuń
+                </button>
+              </div>
 
-            <div className="cartPrice">
-              {item.unitPrice * item.quantity} zł
-            </div>
-          </div>
-        ))}
+              <div className="cartPrice">
+                {item.unitPrice} zł
+              </div>
+            </li>
+          ))}
+        </ul>
 
-        {items.length > 0 && (
-          <div className="cartSummary">
-            <strong>Suma: {totalPrice} zł</strong>
-            <button className="checkoutBtn">
-              Przejdź do finalizacji
-            </button>
-          </div>
-        )}
+        <div className="cartSummary">
+          <strong>Suma: {totalPrice} zł</strong>
+
+          <button
+            className="checkoutBtn"
+            onClick={() => setIsWizardOpen(true)}
+          >
+            Przejdź do finalizacji
+          </button>
+        </div>
       </div>
-    </aside>
+
+      {isWizardOpen && (
+        <div className="wizardOverlay">
+          <div className="wizardModal">
+            <CheckoutWizard onClose={() => setIsWizardOpen(false)} />
+          </div>
+        </div>
+      )}
+    </>
   );
 }

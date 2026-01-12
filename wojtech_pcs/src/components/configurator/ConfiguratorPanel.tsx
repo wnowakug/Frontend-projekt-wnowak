@@ -44,7 +44,6 @@ export default function ConfiguratorPanel({ parts, onClose }: { parts: any; onCl
       imgPath: product.imgPath,
       config,
       unitPrice: totalPrice,
-      quantity: 1
     });
   };
 

@@ -16,14 +16,13 @@ type CartItem = {
   imgPath: string;
   config: Config;
   unitPrice: number;
-  quantity: number;
 };
 
 type CartContextType = {
   items: CartItem[];
   addItem: (item: CartItem) => void;
   removeItem: (id: string) => void;
-  updateQuantity: (id: string, qty: number) => void;
+  clearCart: () => void;
   totalPrice: number;
 };
 
@@ -40,28 +39,24 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setItems(prev => prev.filter(i => i.id !== id));
   };
 
-  const updateQuantity = (id: string, qty: number) => {
-    setItems(prev =>
-      prev.map(item =>
-        item.id === id
-          ? { ...item, quantity: Math.max(1, qty) }
-          : item
-      )
-    );
+  const clearCart = () => {
+    setItems([]);
   };
 
   const totalPrice = items.reduce(
-    (sum, item) => sum + item.unitPrice * item.quantity,
+    (sum, item) => sum + item.unitPrice,
     0
   );
 
   return (
     <CartContext.Provider
-      value={{ items, addItem, removeItem, updateQuantity, totalPrice }}>
+      value={{ items, addItem, removeItem, clearCart, totalPrice }}
+    >
       {children}
     </CartContext.Provider>
   );
 }
+
 
 export function useCart() {
   const ctx = useContext(CartContext);
