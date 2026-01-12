@@ -152,6 +152,118 @@ button {
   border-color: red;
 }
 
+/* KOSZYK */
+@media (max-width: 900px) {
+  .cartWrapper {
+    position: static;
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+.cartWrapper {
+  width: 320px;
+  z-index: 1000;
+}
+
+.cartPanel {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.cartPanel h3 {
+  margin-top: 0;
+}
+
+.cartItem {
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem 0;
+}
+
+.cartControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.cartControls button {
+  padding: 0.25rem 0.5rem;
+}
+
+.cartPrice {
+  font-weight: bold;
+  margin-top: 0.25rem;
+}
+
+.cartSummary {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #ddd;
+}
+
+.checkoutBtn {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+.appHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.cartButton {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+/* TŁO */
+.cartOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+/* PANEL */
+.cartDrawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 360px;
+  height: 100%;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-out;
+}
+
+/* ANIMACJA */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.closeCart {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 /* GRID PRODUKTÓW */
 .card {
   display: flex;

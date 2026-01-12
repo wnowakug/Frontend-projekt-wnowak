@@ -6,11 +6,16 @@ import { useConfigurator } from "@/context/ConfiguratorContext";
 import PartSelect from "./PartSelect";
 import PriceSummary from "./PriceSummary";
 import { getAllowedParts } from "@/lib/configuratorRules";
+import { useCart } from "@/context/CartContext";
+import { nanoid } from "nanoid";
+
 
 const LABOUR_COST = 200;
 
 export default function ConfiguratorPanel({ parts, onClose }: { parts: any; onClose: () => void; }) {
+
   const { product, config, updateConfig } = useConfigurator();
+  const { addItem } = useCart();
   
   if (!product || !config) {
     return null;
@@ -31,10 +36,21 @@ export default function ConfiguratorPanel({ parts, onClose }: { parts: any; onCl
     );
   }, [config, allowedParts]);
 
+  const handleAddToCart = () => {
+    addItem({
+      id: nanoid(),
+      productId: product.id,
+      name: product.name.pl,
+      imgPath: product.imgPath,
+      config,
+      unitPrice: totalPrice,
+      quantity: 1
+    });
+  };
+
+
   return (
-    <div
-      className="configuratorPanel"
-    >
+    <div className="configuratorPanel">
       <div className="configuratorLeft">
         <Image
           src={product.imgPath}
@@ -43,6 +59,10 @@ export default function ConfiguratorPanel({ parts, onClose }: { parts: any; onCl
           height={384}
         />
         <PriceSummary price={totalPrice} />
+
+        <button id="addButton" onClick={handleAddToCart}>
+          Dodaj do koszyka
+        </button>
       </div>
 
       <div className="configuratorOptions">

@@ -20,7 +20,7 @@ export default function RootLayout({
             <ul className="nav">
               <li>Sklep</li>
               <li>Konfigurator</li>
-              <li>Koszyk</li>
+              <li id="cart-anchor">Koszyk</li>
             </ul>
           </nav>
         </header>
