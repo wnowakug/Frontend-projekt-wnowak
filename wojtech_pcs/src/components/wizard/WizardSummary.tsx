@@ -58,13 +58,11 @@ export default function WizardSummary({
       </label>
 
       <div className="wizardActions">
-        <button onClick={onCancel}>
+        <button className="cancelWizardButton" onClick={onCancel}>
           {t("close")}
         </button>
 
-        <button
-          onClick={onNext}
-          disabled={!delivery}
+        <button className="checkoutWizardButton" onClick={onNext} disabled={!delivery}
         >
           {t("checkout")}
         </button>

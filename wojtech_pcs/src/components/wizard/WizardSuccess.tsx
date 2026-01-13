@@ -10,7 +10,7 @@ export default function WizardSuccess({ t, onFinish }: Props) {
     <div className="wizardStep success">
       <h2>{t("success")}</h2>
 
-      <button onClick={onFinish}>
+      <button className="returnButton" onClick={onFinish}>
         {t("backToShop")}
       </button>
     </div>

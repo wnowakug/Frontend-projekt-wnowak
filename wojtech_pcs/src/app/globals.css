@@ -105,6 +105,15 @@ button {
   color: gray;
 }
 
+.partName {
+  font-weight: 600;
+}
+
+.partPrice {
+  font-size: 0.85rem;
+  color: #555;
+}
+
 /* KONFIGURATOR - PRZYCISKI */
 .partSelect {
   margin-bottom: 1.5rem;
@@ -142,15 +151,6 @@ button {
   box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.25);
 }
 
-.partName {
-  font-weight: 600;
-}
-
-.partPrice {
-  font-size: 0.85rem;
-  color: #555;
-}
-
 .closeConfigButton {
   min-width: 140px;
   padding: 0.6rem 0.8rem;
@@ -165,6 +165,27 @@ button {
 .closeConfigButton:hover {
   border-color: red;
   color: red;
+}
+
+.discountButton {
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #cfcfcf;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: center;
+}
+
+.addButton {
+  min-width: 140px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid Black;
+  background: rgb(255, 204, 109);
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  font-size: medium;
 }
 
 /* KOSZYK */
@@ -198,15 +219,15 @@ button {
   padding: 0.5rem 0;
 }
 
-.cartControls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.removeButton {
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #cfcfcf;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: center;
   margin-top: 0.5rem;
-}
-
-.cartControls button {
-  padding: 0.25rem 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .cartPrice {
@@ -220,10 +241,21 @@ button {
   border-top: 2px solid #ddd;
 }
 
-.checkoutBtn {
-  width: 100%;
-  margin-top: 0.5rem;
-  padding: 0.5rem;
+.cartCloseButton {
+  background: none;
+  border: none;
+  font-size: larger;
+  margin: 0.5rem;
+}
+
+.cartCheckoutButton {
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #cfcfcf;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 1rem;
 }
 
 .appHeader {
@@ -298,6 +330,34 @@ button {
   max-width: 520px;
 }
 
+.cancelWizardButton {
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #cfcfcf;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: center;
+}
+
+.checkoutWizardButton {
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #cfcfcf;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 2rem;
+}
+
+.returnButton {
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #cfcfcf;
+  background: #ffffff;
+  cursor: pointer;
+  text-align: center;
+}
+
 /* GRID PRODUKTÓW */
 .card {
   display: flex;
@@ -309,7 +369,7 @@ button {
   min-width: 140px;
   padding: 0.6rem 0.8rem;
   border-radius: 6px;
-  border: 1px solid orange;
+  border: 1px solid rgb(255, 204, 109);
   background: #ffffff;
   cursor: pointer;
   text-align: center;

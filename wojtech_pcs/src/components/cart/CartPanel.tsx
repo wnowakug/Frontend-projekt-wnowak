@@ -48,7 +48,7 @@ export default function CartPanel({ t }: Props) {
                 </div>
 
                 <button
-                  className="remove"
+                  className="removeButton"
                   onClick={() => removeItem(item.id)}
                 >
                   {t("remove")}
@@ -68,7 +68,7 @@ export default function CartPanel({ t }: Props) {
           </strong>
 
           <button
-            className="checkoutBtn"
+            className="cartCheckoutButton"
             onClick={() => setIsWizardOpen(true)}
           >
             {t("checkout")}

@@ -14,7 +14,7 @@ export default function CartDrawer({ isOpen, onClose, t }: Props) {
   return (
     <div className="cartOverlay">
       <div className="cartDrawer">
-        <button className="close" onClick={onClose}>
+        <button className="cartCloseButton" onClick={onClose}>
           ✕
         </button>
 

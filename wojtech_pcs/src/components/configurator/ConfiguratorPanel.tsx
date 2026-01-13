@@ -98,15 +98,15 @@ export default function ConfiguratorPanel({ parts, onClose, t }: Props) {
               placeholder=""
             />
 
-            <button onClick={handleApplyCode}>
+            <button className="discountButton" onClick={handleApplyCode}>
               {t("apply")}
             </button>
           </div>
 
-          {error && <p className="error">{error}</p>}
+          {error && <p>{error}</p>}
         </div>
 
-        <button id="addButton" onClick={handleAddToCart}>
+        <button className="addButton" onClick={handleAddToCart}>
           {t("addToCart")}
         </button>
       </div>
