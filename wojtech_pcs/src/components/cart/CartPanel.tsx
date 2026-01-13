@@ -5,15 +5,19 @@ import { useCart } from "@/context/CartContext";
 import CheckoutWizard from "@/components/wizard/CheckoutWizard";
 import { useState } from "react";
 
-export default function CartPanel() {
+type Props = {
+  t: (key: string) => string;
+};
+
+export default function CartPanel({ t }: Props) {
   const { items, removeItem, totalPrice } = useCart();
   const [isWizardOpen, setIsWizardOpen] = useState(false);
 
   if (items.length === 0) {
     return (
       <div className="cartPanel empty">
-        <h3>Koszyk</h3>
-        <p>Koszyk jest pusty</p>
+        <h3>{t("cart")}</h3>
+        <p>{t("emptyCart")}</p>
       </div>
     );
   }
@@ -21,7 +25,7 @@ export default function CartPanel() {
   return (
     <>
       <div className="cartPanel">
-        <h3>Koszyk</h3>
+        <h3>{t("cart")}</h3>
 
         <ul className="cartList">
           {items.map(item => (
@@ -37,17 +41,17 @@ export default function CartPanel() {
                 <strong>{item.name}</strong>
 
                 <div className="cartConfig">
-                  <div>CPU: {item.config.cpu}</div>
-                  <div>GPU: {item.config.gpu}</div>
-                  <div>RAM: {item.config.ram}</div>
-                  <div>Dysk: {item.config.drives}</div>
+                  <div>{t("cpu")}: {item.config.cpu}</div>
+                  <div>{t("gpu")}: {item.config.gpu}</div>
+                  <div>{t("ram")}: {item.config.ram}</div>
+                  <div>{t("storage")}: {item.config.drives}</div>
                 </div>
 
                 <button
                   className="remove"
                   onClick={() => removeItem(item.id)}
                 >
-                  Usuń
+                  {t("remove")}
                 </button>
               </div>
 
@@ -59,13 +63,15 @@ export default function CartPanel() {
         </ul>
 
         <div className="cartSummary">
-          <strong>Suma: {totalPrice} zł</strong>
+          <strong>
+            {t("totalPrice")}: {totalPrice} zł
+          </strong>
 
           <button
             className="checkoutBtn"
             onClick={() => setIsWizardOpen(true)}
           >
-            Przejdź do finalizacji
+            {t("checkout")}
           </button>
         </div>
       </div>
@@ -73,7 +79,10 @@ export default function CartPanel() {
       {isWizardOpen && (
         <div className="wizardOverlay">
           <div className="wizardModal">
-            <CheckoutWizard onClose={() => setIsWizardOpen(false)} />
+            <CheckoutWizard
+              onClose={() => setIsWizardOpen(false)}
+              t={t}
+            />
           </div>
         </div>
       )}

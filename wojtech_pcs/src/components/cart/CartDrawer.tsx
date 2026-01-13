@@ -1,38 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import CartPanel from "./CartPanel";
 
-export default function CartDrawer() {
-  const [isOpen, setIsOpen] = useState(false);
+type Props = {
+  isOpen: boolean;
+  onClose: () => void;
+  t: (key: string) => string;
+};
 
-  useEffect(() => {
-    const btn = document.getElementById("cart-anchor");
-    if (!btn) return;
-
-    const open = () => setIsOpen(true);
-    btn.addEventListener("click", open);
-
-    return () => btn.removeEventListener("click", open);
-  }, []);
-
+export default function CartDrawer({ isOpen, onClose, t }: Props) {
   if (!isOpen) return null;
 
   return (
-    <div className="cartOverlay" onClick={() => setIsOpen(false)}>
-      <aside
-        className="cartDrawer"
-        onClick={e => e.stopPropagation()}
-      >
-        <button
-          className="closeCart"
-          onClick={() => setIsOpen(false)}
-        >
+    <div className="cartOverlay">
+      <div className="cartDrawer">
+        <button className="close" onClick={onClose}>
           ✕
         </button>
 
-        <CartPanel />
-      </aside>
+        <CartPanel t={t} />
+      </div>
     </div>
   );
 }

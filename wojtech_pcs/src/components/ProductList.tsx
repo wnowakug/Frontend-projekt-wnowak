@@ -5,13 +5,13 @@ import FilterBar from "./FilterBar";
 import ProductCard from "./ProductCard";
 import { filterProducts } from "@/lib/filters";
 
-export default function ProductList({
-  products,
-  parts
-}: {
+type Props = {
   products: any[];
   parts: any;
-}) {
+  t: (key: string) => string;
+};
+
+export default function ProductList({ products, parts, t }: Props) {
   const [filters, setFilters] = useState({
     purpose: "",
     price: "",
@@ -23,7 +23,7 @@ export default function ProductList({
 
   return (
     <>
-      <FilterBar filters={filters} onChange={setFilters} />
+      <FilterBar filters={filters} onChange={setFilters} t={t}/>
 
       <div className="pc-grid">
         {filteredProducts.map(product => (
@@ -31,12 +31,13 @@ export default function ProductList({
             key={product.id}
             product={product}
             parts={parts}
+            t={t}
           />
         ))}
       </div>
 
       {filteredProducts.length === 0 && (
-        <p>Brak zestawów spełniających kryteria.</p>
+        <p>{t("noResults")}</p>
       )}
     </>
   );

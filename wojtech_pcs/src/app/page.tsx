@@ -1,9 +1,6 @@
-import ProductList from "@/components/ProductList";
-import ConfiguratorBar from "@/components/configurator/ConfiguratorBar";
-import { ConfiguratorProvider } from "@/context/ConfiguratorContext";
 import { CartProvider } from "@/context/CartContext";
-import CartDrawer from "@/components/cart/CartDrawer";
-
+import { ConfiguratorProvider } from "@/context/ConfiguratorContext";
+import HomeClient from "@/components/Home";
 
 async function getProducts() {
   const res = await fetch("http://localhost:3000/api/products", {
@@ -31,31 +28,17 @@ async function getParts() {
 
 export default async function HomePage() {
   try {
-  const products = await getProducts();
-  const parts = await getParts();
+    const products = await getProducts();
+    const parts = await getParts();
 
-  return (
-    <CartProvider>
-      <ConfiguratorProvider>
-        {/* koszyk */}
-        <CartDrawer />
-
-        {/* konfigurator*/}
-        <ConfiguratorBar parts={parts} />
-
-        <h2>Gotowe zestawy PC</h2>
-
-        {/* produkty */}
-        <ProductList
-          products={products}
-          parts={parts}
-        />
-      </ConfiguratorProvider>
-    </CartProvider>
-  );
-} catch (error) {
     return (
-      <h2>Błąd pobierania danych z API</h2>
+      <CartProvider>
+        <ConfiguratorProvider>
+          <HomeClient products={products} parts={parts} />
+        </ConfiguratorProvider>
+      </CartProvider>
     );
+  } catch {
+    return <h2>Błąd pobierania danych z API</h2>;
   }
 }

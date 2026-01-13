@@ -1,27 +1,17 @@
 "use client";
 
-import { useCart } from "@/context/CartContext";
+type Props = {
+  t: (key: string) => string;
+  onFinish: () => void;
+};
 
-export default function WizardSuccess({
-  onClose
-}: {
-  onClose: () => void;
-}) {
-  const { items, clearCart } = useCart();
-
-  const handleFinish = () => {
-    clearCart();
-    onClose();
-  };
-
+export default function WizardSuccess({ t, onFinish }: Props) {
   return (
-    <div className="wizard">
-      <h2>✅ Zamówienie złożone</h2>
-      <p>Dziękujemy za zakupy!</p>
-      <p>Liczba pozycji: {items.length}</p>
+    <div className="wizardStep success">
+      <h2>{t("success")}</h2>
 
-      <button onClick={handleFinish}>
-        Wróć do sklepu
+      <button onClick={onFinish}>
+        {t("backToShop")}
       </button>
     </div>
   );

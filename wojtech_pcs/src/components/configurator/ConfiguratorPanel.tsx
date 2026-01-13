@@ -1,21 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useConfigurator } from "@/context/ConfiguratorContext";
 import PartSelect from "./PartSelect";
 import PriceSummary from "./PriceSummary";
 import { getAllowedParts } from "@/lib/configuratorRules";
 import { useCart } from "@/context/CartContext";
 import { nanoid } from "nanoid";
+import discountCodes from "@/data/discount-codes.json";
 
 
 const LABOUR_COST = 200;
 
-export default function ConfiguratorPanel({ parts, onClose }: { parts: any; onClose: () => void; }) {
+type Props = {
+  parts: any;
+  onClose: () => void;
+  t: (key: string) => string;
+};
 
-  const { product, config, updateConfig } = useConfigurator();
+export default function ConfiguratorPanel({ parts, onClose, t }: Props) {
+
+  const { product, config, updateConfig, applyDiscount } = useConfigurator();
   const { addItem } = useCart();
+
+  const [code, setCode] = useState("");
+  const [error, setError] = useState("");
   
   if (!product || !config) {
     return null;
@@ -26,15 +36,18 @@ export default function ConfiguratorPanel({ parts, onClose }: { parts: any; onCl
   const findPrice = (list: any[], id: string) =>
     list.find(el => el.id === id)?.price ?? 0;
 
+  const basePrice =
+    findPrice(allowedParts.cpus, config.cpu) +
+    findPrice(allowedParts.gpus, config.gpu) +
+    findPrice(allowedParts.rams, config.ram) +
+    findPrice(allowedParts.drives, config.drives) +
+    LABOUR_COST;
+
   const totalPrice = useMemo(() => {
-    return (
-      findPrice(allowedParts.cpus, config.cpu) +
-      findPrice(allowedParts.gpus, config.gpu) +
-      findPrice(allowedParts.rams, config.ram) +
-      findPrice(allowedParts.drives, config.drives) +
-      LABOUR_COST
+    return Math.round(
+      basePrice * (1 - config.discount / 100)
     );
-  }, [config, allowedParts]);
+  }, [basePrice, config.discount]);
 
   const handleAddToCart = () => {
     addItem({
@@ -47,6 +60,21 @@ export default function ConfiguratorPanel({ parts, onClose }: { parts: any; onCl
     });
   };
 
+  const handleApplyCode = () => {
+    const found = discountCodes.find(
+      c => c.name.toLowerCase() === code.toLowerCase()
+    );
+
+    if (!found) {
+      setError(t("invalidCode"));
+      return;
+    }
+
+    applyDiscount(found.discount);
+    setError("");
+  };
+
+
 
   return (
     <div className="configuratorPanel">
@@ -57,10 +85,29 @@ export default function ConfiguratorPanel({ parts, onClose }: { parts: any; onCl
           width={256}
           height={384}
         />
-        <PriceSummary price={totalPrice} />
+        <PriceSummary price={totalPrice} t={t}/>
+
+        <div className="discountBox">
+          <label>{t("discountCode")}</label>
+
+          <div className="discountInput">
+            <input
+              type="text"
+              value={code}
+              onChange={e => setCode(e.target.value)}
+              placeholder=""
+            />
+
+            <button onClick={handleApplyCode}>
+              {t("apply")}
+            </button>
+          </div>
+
+          {error && <p className="error">{error}</p>}
+        </div>
 
         <button id="addButton" onClick={handleAddToCart}>
-          Dodaj do koszyka
+          {t("addToCart")}
         </button>
       </div>
 
@@ -68,35 +115,35 @@ export default function ConfiguratorPanel({ parts, onClose }: { parts: any; onCl
         <h3>{product.name.pl}</h3>
 
         <PartSelect
-          label="Procesor"
+          label={t("cpu")}
           options={allowedParts.cpus}
           value={config.cpu}
           onChange={value => updateConfig("cpu", value)}
         />
 
         <PartSelect
-          label="Karta graficzna"
+          label={t("gpu")}
           options={allowedParts.gpus}
           value={config.gpu}
           onChange={value => updateConfig("gpu", value)}
         />
 
         <PartSelect
-          label="Pamięć RAM"
+          label={t("ram")}
           options={allowedParts.rams}
           value={config.ram}
           onChange={value => updateConfig("ram", value)}
         />
 
         <PartSelect
-          label="Dysk"
+          label={t("storage")}
           options={allowedParts.drives}
           value={config.drives}
           onChange={value => updateConfig("drives", value)}
         />
 
-        <button id="closeConfigButton" onClick={onClose}>
-          Zamknij konfigurator
+        <button className="closeConfigButton" onClick={onClose}>
+          {t("closeConfigurator")}
         </button>
       </div>
     </div>

@@ -8,16 +8,17 @@ import WizardSuccess from "./WizardSuccess";
 
 type WizardStep = "summary" | "processing" | "success";
 
-export default function CheckoutWizard({
-  onClose
-}: {
+type Props = {
   onClose: () => void;
-}) {
-  const { items, totalPrice, } = useCart();
+  t: (key: string) => string;
+};
+
+export default function CheckoutWizard({ onClose, t }: Props) {
+  const { items, totalPrice, clearCart } = useCart();
   const [step, setStep] = useState<WizardStep>("summary");
   const [delivery, setDelivery] = useState<string>("");
 
-  // symulacja przetwarzania
+  // fejkowe przetwarzanie zamówienia
   useEffect(() => {
     if (step === "processing") {
       const timer = setTimeout(() => {
@@ -28,6 +29,13 @@ export default function CheckoutWizard({
     }
   }, [step]);
 
+  const handleFinish = () => {
+    clearCart();
+    setDelivery("");
+    setStep("summary");
+    onClose();
+  };
+
   if (step === "summary") {
     return (
       <WizardSummary
@@ -37,13 +45,19 @@ export default function CheckoutWizard({
         setDelivery={setDelivery}
         onNext={() => setStep("processing")}
         onCancel={onClose}
+        t={t}
       />
     );
   }
 
   if (step === "processing") {
-    return <WizardProcessing />;
+    return <WizardProcessing t={t} />;
   }
 
-  return <WizardSuccess onClose={onClose} />;
+  return (
+    <WizardSuccess
+      t={t}
+      onFinish={handleFinish}
+    />
+  );
 }

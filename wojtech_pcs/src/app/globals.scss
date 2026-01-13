@@ -5,7 +5,11 @@ body {
 }
 
 .container {
-  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.corePage{
+  max-width: 75%;
   margin: 0 auto;
 }
 
@@ -13,6 +17,14 @@ body {
   background: #111;
   color: white;
   padding: 1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+
+.langButton{
+  background:none;
+  border:none;
 }
 
 .logo {
@@ -38,8 +50,6 @@ body {
 }
 
 button {
-  padding: 0.7rem 1.2rem;
-  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -95,6 +105,10 @@ button {
   opacity: 1;
 }
 
+.fee{
+  color:gray;
+}
+
 /* KONFIGURATOR - PRZYCISKI */
 
 .partSelect {
@@ -146,7 +160,7 @@ button {
   color: #555;
 }
 
-#closeConfigButton {
+.closeConfigButton {
   min-width: 140px;
   padding: 0.6rem 0.8rem;
   border-radius: 6px;
@@ -161,8 +175,9 @@ button {
     box-shadow 0.2s ease;
 }
 
-#closeConfigButton:hover {
+.closeConfigButton:hover {
   border-color: red;
+  color:red;
 }
 
 /* KOSZYK */
@@ -236,7 +251,8 @@ button {
 
 .cartButton {
   font-size: 1rem;
-  padding: 0.5rem 1rem;
+  background:none;
+  border-style:none;
 }
 
 /* TŁO */

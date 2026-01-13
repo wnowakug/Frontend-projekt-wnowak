@@ -6,7 +6,12 @@ import ConfiguratorPanel from "./ConfiguratorPanel";
 
 const ANIMATION_TIME = 450;
 
-export default function ConfiguratorBar({ parts }: { parts: any }) {
+type Props = {
+  parts: any;
+  t: (key: string) => string;
+};
+
+export default function ConfiguratorBar({ parts, t }: Props){
   const { product, setProduct } = useConfigurator();
   const [isOpen, setIsOpen] = useState(false);
   const barRef = useRef<HTMLDivElement>(null);
@@ -34,8 +39,8 @@ export default function ConfiguratorBar({ parts }: { parts: any }) {
   return (
     <div className="configuratorBar" ref={barRef}>
       <div className="configuratorHeader">
-        {!isOpen && <strong>Wybierz komputer do konfiguracji</strong>}
-        {isOpen && <strong>Konfiguracja zestawu</strong>}
+        {!isOpen && <strong>{t("chooseToConfig")}</strong>}
+        {isOpen && <strong>{t("pcConfig")}</strong>}
       </div>
 
       <div className={`configuratorContent ${isOpen ? "open" : ""}`}>
@@ -43,6 +48,7 @@ export default function ConfiguratorBar({ parts }: { parts: any }) {
           <ConfiguratorPanel
             parts={parts}
             onClose={handleClose}
+            t={t}
           />
         )}
       </div>

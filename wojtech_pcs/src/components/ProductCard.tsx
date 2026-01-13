@@ -13,9 +13,10 @@ type Parts = {
 type Props = {
   product: any;
   parts: Parts;
+  t: (key: string) => string;
 };
 
-export default function ProductCard({ product, parts }: Props) {
+export default function ProductCard({ product, parts, t }: Props) {
   const { cpus, gpus, rams, drives } = parts;
   const cfg = product.defaultConfig;
 
@@ -37,17 +38,17 @@ export default function ProductCard({ product, parts }: Props) {
         />
       </div>
 
-      <p className="price">Cena bazowa: {product.basePrice} zł</p>
+      <p className="price">{t("basePrice")}{product.basePrice} zł</p>
 
       <ul>
         <li>CPU: {findName(cpus, cfg.cpu)}</li>
         <li>GPU: {findName(gpus, cfg.gpu)}</li>
         <li>RAM: {findName(rams, cfg.ram)}</li>
-        <li>Dysk: {findName(drives, cfg.drives)}</li>
+        <li>{t("dysk")} {findName(drives, cfg.drives)}</li>
       </ul>
 
       <button className="choosePcButton" onClick={() => setProduct(product)}>
-        Wybierz
+        {t("choose")}
       </button>
     </div>
   );

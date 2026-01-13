@@ -1,9 +1,14 @@
-export default function WizardProcessing() {
+"use client";
+
+type Props = {
+  t: (key: string) => string;
+};
+
+export default function WizardProcessing({ t }: Props) {
   return (
-    <div className="wizard">
-      <h2>Przetwarzanie zamówienia…</h2>
-      <p>Proszę czekać</p>
-      <div className="spinner" />
+    <div className="wizardStep">
+      <h2>{t("processing")}</h2>
+      <p>⏳</p>
     </div>
   );
 }

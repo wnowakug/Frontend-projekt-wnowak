@@ -7,6 +7,7 @@ type Config = {
   gpu: string;
   ram: string;
   drives: string;
+  discount: number;
 };
 
 type ContextType = {
@@ -14,6 +15,7 @@ type ContextType = {
   config: Config | null;
   setProduct: (product: any | null) => void;
   updateConfig: (key: keyof Config, value: string) => void;
+  applyDiscount: (discount: number) => void;
 };
 
 const ConfiguratorContext = createContext<ContextType | null>(null);
@@ -33,7 +35,8 @@ export function ConfiguratorProvider({
         cpu: product.defaultConfig.cpu,
         gpu: product.defaultConfig.gpu,
         ram: product.defaultConfig.ram,
-        drives: product.defaultConfig.drives
+        drives: product.defaultConfig.drives,
+        discount: 0
       });
     } else {
       setConfig(null);
@@ -46,9 +49,15 @@ export function ConfiguratorProvider({
     );
   };
 
+  const applyDiscount = (discount: number) => {
+    setConfig(prev =>
+      prev ? { ...prev, discount } : prev
+    );
+  };
+
   return (
     <ConfiguratorContext.Provider
-      value={{ product, config, setProduct, updateConfig }}
+      value={{ product, config, setProduct, updateConfig, applyDiscount }}
     >
       {children}
     </ConfiguratorContext.Provider>

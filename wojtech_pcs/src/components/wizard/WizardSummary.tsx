@@ -7,6 +7,7 @@ type Props = {
   setDelivery: (v: string) => void;
   onNext: () => void;
   onCancel: () => void;
+  t: (key: string) => string;
 };
 
 export default function WizardSummary({
@@ -15,25 +16,27 @@ export default function WizardSummary({
   delivery,
   setDelivery,
   onNext,
-  onCancel
+  onCancel,
+  t
 }: Props) {
-  const canProceed = items.length > 0 && delivery !== "";
-
   return (
-    <div className="wizard">
-      <h2>Podsumowanie zamówienia</h2>
+    <div className="wizardStep">
+      <h2>{t("orderSummary")}</h2>
 
       <ul>
         {items.map(item => (
           <li key={item.id}>
-            {item.name} × {item.quantity}
+            {item.name} – {item.unitPrice} zł
           </li>
         ))}
       </ul>
 
-      <p><strong>Suma:</strong> {totalPrice} zł</p>
+      <p>
+        <strong>{t("totalPrice")}:</strong> {totalPrice} zł
+      </p>
 
-      <h4>Sposób odbioru</h4>
+      <h4>{t("deliveryMethod")}</h4>
+
       <label>
         <input
           type="radio"
@@ -41,7 +44,7 @@ export default function WizardSummary({
           checked={delivery === "pickup"}
           onChange={e => setDelivery(e.target.value)}
         />
-        Odbiór osobisty
+        {t("pickup")}
       </label>
 
       <label>
@@ -51,13 +54,19 @@ export default function WizardSummary({
           checked={delivery === "courier"}
           onChange={e => setDelivery(e.target.value)}
         />
-        Kurier
+        {t("courier")}
       </label>
 
       <div className="wizardActions">
-        <button onClick={onCancel}>Anuluj</button>
-        <button disabled={!canProceed} onClick={onNext}>
-          Dalej
+        <button onClick={onCancel}>
+          {t("close")}
+        </button>
+
+        <button
+          onClick={onNext}
+          disabled={!delivery}
+        >
+          {t("checkout")}
         </button>
       </div>
     </div>

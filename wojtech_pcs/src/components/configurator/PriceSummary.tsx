@@ -1,14 +1,13 @@
-export default function PriceSummary({ price }: { price: number }) {
+type Props = {
+  price: number;
+  t: (key: string) => string;
+};
+
+export default function PriceSummary({ price, t }: Props) {
   return (
-    <div
-      style={{
-        fontWeight: "bold",
-      }}
-    >
-      Cena końcowa: {price} zł
-      <div style={{ fontSize: "0.8rem", color: "gray" }}>
-        (w tym 200 zł za montaż)
-      </div>
+    <div className="priceSummary">
+      <strong>{t("totalPrice")}:</strong> {price} zł
+      <div className="fee">{t("assembly")}</div>
     </div>
   );
 }

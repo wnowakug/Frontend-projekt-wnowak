@@ -10,13 +10,14 @@ type Filters = {
 type Props = {
   filters: Filters;
   onChange: (filters: Filters) => void;
+  t: (key: string) => string;
 };
 
-export default function FilterBar({ filters, onChange }: Props) {
+export default function FilterBar({ filters, onChange, t }: Props) {
   return (
     <div className="filterBar">
       <div className="filterOption">
-        Zastowsowanie:
+        <label>{t("purpose")}</label>
         <select
           value={filters.purpose}
           onChange={e => onChange({ ...filters, purpose: e.target.value })}
@@ -29,7 +30,7 @@ export default function FilterBar({ filters, onChange }: Props) {
       </div>
 
       <div className="filterOption">
-        Przedział cenowy:
+        <label>{t("priceRange")}</label>
         <select
           value={filters.price}
           onChange={e => onChange({ ...filters, price: e.target.value })}
@@ -42,7 +43,7 @@ export default function FilterBar({ filters, onChange }: Props) {
       </div>
 
       <div className="filterOption">
-        Producent CPU:
+        <label>{t("cpuBrand")}</label>
         <select
           value={filters.cpuBrand}
           onChange={e => onChange({ ...filters, cpuBrand: e.target.value })}
@@ -54,7 +55,7 @@ export default function FilterBar({ filters, onChange }: Props) {
       </div>
 
       <div className="filterOption">
-        Producent GPU:
+        <label>{t("gpuBrand")}</label>
         <select
           value={filters.gpuBrand}
           onChange={e => onChange({ ...filters, gpuBrand: e.target.value })}
