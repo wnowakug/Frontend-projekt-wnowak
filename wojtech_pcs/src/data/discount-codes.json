@@ -10,5 +10,9 @@
   {
     "name": "WOJTECH20",
     "discount": 20
+  },
+  {
+    "name": "PROF_MIOTK",
+    "discount": 99
   }
 ]

@@ -21,7 +21,6 @@ export default function HomeClient({ products, parts }: Props) {
 
   return (
     <>
-      {/* HEADER Z PRZEŁĄCZNIKIEM JĘZYKA */}
         <HeaderClient lang={lang} setLang={setLang} onCartClick={() => setIsCartOpen(true)} t={t} />
 
         <div className="corePage">

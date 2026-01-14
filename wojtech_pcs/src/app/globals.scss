@@ -195,6 +195,7 @@ button {
   border-radius: 6px;
   border: 1px solid Black;
   background: rgb(255, 204, 109);
+  box-shadow: 0 0 0 2px rgb(247, 178, 50);
   cursor: pointer;
   text-align: center;
   font-weight:bold;
@@ -287,7 +288,6 @@ button {
   border-style:none;
 }
 
-/* TŁO */
 .cartOverlay {
   position: fixed;
   inset: 0;
@@ -295,7 +295,7 @@ button {
   z-index: 1000;
 }
 
-/* PANEL */
+/* PANEL I ANIMACJA */
 .cartDrawer {
   position: absolute;
   top: 0;
@@ -308,7 +308,6 @@ button {
   animation: slideIn 0.3s ease-out;
 }
 
-/* ANIMACJA */
 @keyframes slideIn {
   from {
     transform: translateX(100%);
